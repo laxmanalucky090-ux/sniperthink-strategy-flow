@@ -1,0 +1,46 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #f5f5f5;
+}
+
+.strategy-container {
+  padding: 60px;
+  text-align: center;
+}
+
+.step-card {
+  background: white;
+  padding: 20px;
+  margin: 20px auto;
+  width: 300px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+}
+
+.step-card:hover {
+  transform: scale(1.05);
+}
+.progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 5px;
+  background: #4caf50;
+  width: 0%;
+}
+
+.interest-btn {
+  margin-top: 10px;
+  padding: 8px 15px;
+  border: none;
+  background: #4caf50;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.interest-btn:hover {
+  background: #388e3c;
+}
