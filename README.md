@@ -17,7 +17,7 @@ Backend:
 Node.js + Express
 
 ## Live Demo
-https://sniperthink-strategy-flow.vercel.app
+https://sniperthink-strategy-fl-git-d13cf5-laxmanalucky090-uxs-projects.vercel.app
 
 ## Author
 Salapareddi Laxmana
