@@ -1,38 +1,23 @@
-# Strategy Flow Web Application
+# SniperThink Strategy Flow
 
-This project is a simple full-stack web application that demonstrates a strategy workflow with interactive steps.
+An interactive strategy flow section demonstrating how SniperThink works.
 
 ## Features
-- Step-by-step strategy flow interface
+- Scroll-based storytelling
+- Animated strategy steps
+- Progress indicator
 - Interactive "I'm Interested" button
-- User name and email collection
-- Data sent to backend using API
-- Backend logs user interest in terminal
+- Backend API integration
 
-## Technologies Used
+## Tech Stack
 Frontend:
-- HTML
-- CSS
-- TypeScript
-- Vite
+React + Vite + TypeScript
 
 Backend:
-- Node.js
-- Express.js
+Node.js + Express
 
-## How to Run the Project
-
-Frontend:
-npm install  
-npm run dev  
-
-Backend:
-cd backend  
-node server.js  
-
-Then open:
-http://localhost:5173
+## Live Demo
+https://sniperthink-strategy-flow.vercel.app
 
 ## Author
 Salapareddi Laxmana
-B.Tech Cyber Security
