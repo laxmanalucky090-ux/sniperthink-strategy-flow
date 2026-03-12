@@ -13,54 +13,77 @@ function StrategyFlow() {
     const card = document.createElement("div");
     card.className = "step-card";
 
-    // Card content: title & description
     card.innerHTML = `
       <h2>Step ${index + 1}: ${step.title}</h2>
       <p>${step.description}</p>
+
       <input type="text" placeholder="Enter Name" class="name-input" />
       <input type="email" placeholder="Enter Email" class="email-input" />
+
       <button class="interest-btn">I'm Interested</button>
+      <p class="message"></p>
     `;
 
     const button = card.querySelector(".interest-btn") as HTMLButtonElement;
     const nameInput = card.querySelector(".name-input") as HTMLInputElement;
     const emailInput = card.querySelector(".email-input") as HTMLInputElement;
+    const message = card.querySelector(".message") as HTMLElement;
 
-    // Click handler
+    // Button click
     button.onclick = async () => {
       const name = nameInput.value.trim();
       const email = emailInput.value.trim();
 
       if (!name || !email) {
-        alert("Please enter both name and email!");
+        message.textContent = "Please enter name and email.";
+        message.style.color = "red";
         return;
       }
 
+      // Loading state
+      button.textContent = "Submitting...";
+      button.disabled = true;
+      message.textContent = "";
+
       try {
-        const response = await fetch("http://localhost:5000/api/interest", {
+        const response = await fetch("/api/interest", {
           method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ name, email, step: step.title }),
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            name,
+            email,
+            step: step.title
+          })
         });
 
         if (response.ok) {
-          alert("Interest submitted successfully!");
-          // Optional: clear inputs after submit
+          message.textContent = "Submitted successfully!";
+          message.style.color = "green";
+
           nameInput.value = "";
           emailInput.value = "";
         } else {
-          alert("Failed to submit. Try again.");
+          message.textContent = "Submission failed. Try again.";
+          message.style.color = "red";
         }
+
       } catch (error) {
         console.error(error);
-        alert("Error submitting interest. Check console.");
+        message.textContent = "Server error. Please try later.";
+        message.style.color = "red";
       }
+
+      // Reset button
+      button.textContent = "I'm Interested";
+      button.disabled = false;
     };
 
     container.appendChild(card);
   });
 
-  // Scroll-based progress bar
+  // Scroll progress animation
   window.addEventListener("scroll", () => {
     const scrollTop = document.documentElement.scrollTop;
     const height =
